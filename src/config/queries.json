@@ -1,0 +1,7 @@
+{
+    "createTransaction": "INSERT INTO transactions (trans_id, amount, type, parent_id) VALUES ($1, $2, $3, $4);",
+    "getTransactionById": "SELECT * FROM transactions WHERE trans_id = $1;",
+    "getTransactionsByType": "SELECT * FROM transactions WHERE type = $1;",
+    "getAmountByTransId": "SELECT amount FROM transactions WHERE trans_id = $1",
+    "getTransIdNAmtWhereIdIsParent": "SELECT trans_id, amount FROM transactions WHERE parent_id = $1"
+}

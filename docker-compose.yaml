@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: transaction-app
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://transaction:transaction@db:5432/database
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: transaction-db
+    environment:
+      POSTGRES_USER: transaction
+      POSTGRES_PASSWORD: transaction
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
